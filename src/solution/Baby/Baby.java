@@ -17,7 +17,8 @@ public final class Baby extends ChildrenCategory {
 
     /**
      * Se calculeaza average score-ul pentru un copil din categoria de varsta Baby,
-     * valoarea asignata fiind egala cu 10
+     * valoarea asignata fiind egala cu 10. De asemenea, implementarea acestei metode
+     * face parte din caracteristica Strategy Pattern-ului.
      */
     @Override
     public void calculateAverageScore() {

@@ -18,7 +18,8 @@ public final class Kid extends ChildrenCategory {
     /**
      * Se calculeaza average score-ul pentru un copil din categoria de varsta Kid,
      * valoarea asignata fiind egala cu media aritmetica a average score-urilor
-     * pe care le-a avut acesta vreodata
+     * pe care le-a avut acesta vreodata. De asemenea, implementarea acestei metode
+     * face parte din caracteristica Strategy Pattern-ului.
      */
     @Override
     public void calculateAverageScore() {

@@ -19,29 +19,87 @@ public abstract class ChildrenCategory {
     protected Double assignedBudget;
     protected List<SantaGift> receivedGifts = new ArrayList<>();
 
-    private static ChildrenCategory instance = null;
-
-    /**
-     * Metoda necesara pentru a face clasa ChildrenCategory de
-     * tip Singleton
-     *
-     * @return returneaza instanta unica creata de tip ChildrenCategory
-     */
-    public static ChildrenCategory getInstance() {
-        if (instance == null) {
-            instance = new ChildrenCategory() {
-                @Override
-                public void calculateAverageScore() {
-
-                }
-            };
-        }
-        return instance;
+    private ChildrenCategory(ChildrenCategoryBuilder builder) {
+        this.id = builder.id;
+        this.lastName = builder.lastName;
+        this.firstName = builder.firstName;
+        this.city = builder.city;
+        this.age = builder.age;
+        this.giftsPreferences = builder.giftsPreferences;
+        this.averageScore = builder.averageScore;
+        this.niceScoreHistory = builder.niceScoreHistory;
+        this.assignedBudget = builder.assignedBudget;
+        this.receivedGifts = builder.receivedGifts;
     }
 
     public ChildrenCategory() {
 
     }
+
+
+    public static class ChildrenCategoryBuilder {
+
+        // mandatory
+        private Integer id;
+        private String lastName;
+        private String firstName;
+        private String city;
+        private Integer age;
+
+        // optional
+        private List<String> giftsPreferences;
+        private Double averageScore;
+        private List<Double> niceScoreHistory;
+        private Double assignedBudget;
+        private List<SantaGift> receivedGifts = new ArrayList<>();
+
+        public ChildrenCategoryBuilder(final Integer id, final String lastName,
+                                       final String firstName, final String city,
+                                       final Integer age) {
+            this.id = id;
+            this.lastName = lastName;
+            this.firstName = firstName;
+            this.city = city;
+            this.age = age;
+        }
+
+        public ChildrenCategoryBuilder giftsPreferences(final List<String> giftsPreferences) {
+            this.giftsPreferences = giftsPreferences;
+            return this;
+        }
+
+        public ChildrenCategoryBuilder averageScore(final Double averageScore) {
+            this.averageScore = averageScore;
+            return this;
+        }
+
+        public ChildrenCategoryBuilder niceScoreHistory(final List<Double> niceScoreHistory) {
+            this.niceScoreHistory = niceScoreHistory;
+            return this;
+        }
+
+        public ChildrenCategoryBuilder assignedBudget(final Double assignedBudget) {
+            this.assignedBudget = assignedBudget;
+            return this;
+        }
+
+        public ChildrenCategoryBuilder receivedGifts(final List<SantaGift> receivedGifts) {
+            this.receivedGifts = receivedGifts;
+            return this;
+        }
+
+        public ChildrenCategory build() {
+            return new ChildrenCategory(this) {
+                @Override
+                public void calculateAverageScore() { }
+            };
+        }
+
+
+    }
+
+
+
 
     /**
      * Initializeaza obiectele din cadrul clasei ChildrenCategory primind ca parametru
@@ -50,6 +108,7 @@ public abstract class ChildrenCategory {
      * @param children Copilul ale carui date sunt asignate obiectelor corespunzatoare
      */
     public void setChildrenCategory(final Children children) {
+
         this.id = children.getId();
         this.lastName = children.getLastName();
         this.firstName = children.getFirstName();
@@ -159,7 +218,7 @@ public abstract class ChildrenCategory {
     /**
      * Aceasta metoda are rolul de a calcula average score-ul in functie de categoria
      * de varsta a copilului. Din acest motiv clasa este abstracta si va fi implementata in
-     * subclasele corespunzatoare
+     * subclasele corespunzatoare, fiind astfel un Strategy Design Pattern
      */
     public abstract void calculateAverageScore();
 

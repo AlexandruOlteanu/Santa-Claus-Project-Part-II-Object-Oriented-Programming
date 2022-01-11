@@ -16,7 +16,9 @@ public class YoungAdult extends ChildrenCategory {
 
     /**
      * Se calculeaza average score-ul pentru un copil din categoria de varsta Kid.
-     * Aceasta metoda nu este apelata deoarece copiii de acest tip nu mai primesc cadouri
+     * Aceasta metoda nu este apelata deoarece copiii de acest tip nu mai primesc cadouri.
+     * De asemenea, implementarea acestei metode face parte din caracteristica
+     * Strategy Pattern-ului.
      */
     @Override
     public void calculateAverageScore() {

@@ -72,8 +72,17 @@ public final class MainSolution {
         List<Children> childrenList = input.getInitialData().getChildrenList();
 
         for (Children children : childrenList) {
-            ChildrenCategory childrenCategory = ChildrenCategory.getInstance();
-            childrenCategory.setChildrenCategory(children);
+            ChildrenCategory.ChildrenCategoryBuilder childrenCategoryBuilder =
+                    new ChildrenCategory.ChildrenCategoryBuilder(children.getId(),
+                            children.getLastName(), children.getFirstName(),
+                            children.getCity(), children.getAge());
+            childrenCategoryBuilder.giftsPreferences(children.getGiftsPreferences());
+            List<Double> niceScoreHistory = new ArrayList<>();
+            niceScoreHistory.add(children.getNiceScore());
+            childrenCategoryBuilder.niceScoreHistory(niceScoreHistory);
+            List<SantaGift> receivedGifts = new ArrayList<>();
+            childrenCategoryBuilder.receivedGifts(receivedGifts);
+            ChildrenCategory childrenCategory = childrenCategoryBuilder.build();
 
             ChildrenFactory childrenFactory = ChildrenFactory.getInstance();
 

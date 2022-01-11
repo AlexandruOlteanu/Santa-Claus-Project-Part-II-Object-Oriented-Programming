@@ -15,7 +15,8 @@ public final class Teen extends ChildrenCategory {
     /**
      * Se calculeaza average score-ul pentru un copil din categoria de varsta Teen,
      * valoarea asignata fiind egala cu media ponderata a average score-urilor
-     * pe care le-a avut acesta vreodata
+     * pe care le-a avut acesta vreodata. De asemenea, implementarea acestei metode
+     * face parte din caracteristica Strategy Pattern-ului.
      */
     @Override
     public void calculateAverageScore() {
