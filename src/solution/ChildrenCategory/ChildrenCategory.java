@@ -1,6 +1,5 @@
 package solution.ChildrenCategory;
 
-import database.Children;
 import database.SantaGift;
 
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ public abstract class ChildrenCategory {
     protected Double assignedBudget;
     protected List<SantaGift> receivedGifts = new ArrayList<>();
 
-    private ChildrenCategory(ChildrenCategoryBuilder builder) {
+    private ChildrenCategory(final ChildrenCategoryBuilder builder) {
         this.id = builder.id;
         this.lastName = builder.lastName;
         this.firstName = builder.firstName;
@@ -37,7 +36,7 @@ public abstract class ChildrenCategory {
     }
 
 
-    public static class ChildrenCategoryBuilder {
+    public static final class ChildrenCategoryBuilder {
 
         // mandatory
         private Integer id;
@@ -63,31 +62,60 @@ public abstract class ChildrenCategory {
             this.age = age;
         }
 
-        public ChildrenCategoryBuilder giftsPreferences(final List<String> giftsPreferences) {
-            this.giftsPreferences = giftsPreferences;
+        /**
+         *
+         * @param newGiftsPreferences
+         * @return
+         */
+        public ChildrenCategoryBuilder giftsPreferences(final List<String> newGiftsPreferences) {
+            this.giftsPreferences = newGiftsPreferences;
             return this;
         }
 
-        public ChildrenCategoryBuilder averageScore(final Double averageScore) {
-            this.averageScore = averageScore;
+        /**
+         *
+         * @param newAverageScore
+         * @return
+         */
+        public ChildrenCategoryBuilder averageScore(final Double newAverageScore) {
+            this.averageScore = newAverageScore;
             return this;
         }
 
-        public ChildrenCategoryBuilder niceScoreHistory(final List<Double> niceScoreHistory) {
-            this.niceScoreHistory = niceScoreHistory;
+        /**
+         *
+         * @param newNiceScoreHistory
+         * @return
+         */
+        public ChildrenCategoryBuilder niceScoreHistory(final List<Double> newNiceScoreHistory) {
+            this.niceScoreHistory = newNiceScoreHistory;
             return this;
         }
 
-        public ChildrenCategoryBuilder assignedBudget(final Double assignedBudget) {
-            this.assignedBudget = assignedBudget;
+        /**
+         *
+         * @param newAssignedBudget
+         * @return
+         */
+        public ChildrenCategoryBuilder assignedBudget(final Double newAssignedBudget) {
+            this.assignedBudget = newAssignedBudget;
             return this;
         }
 
-        public ChildrenCategoryBuilder receivedGifts(final List<SantaGift> receivedGifts) {
-            this.receivedGifts = receivedGifts;
+        /**
+         *
+         * @param newReceivedGifts
+         * @return
+         */
+        public ChildrenCategoryBuilder receivedGifts(final List<SantaGift> newReceivedGifts) {
+            this.receivedGifts = newReceivedGifts;
             return this;
         }
 
+        /**
+         *
+         * @return
+         */
         public ChildrenCategory build() {
             return new ChildrenCategory(this) {
                 @Override
@@ -98,27 +126,6 @@ public abstract class ChildrenCategory {
 
     }
 
-
-
-
-    /**
-     * Initializeaza obiectele din cadrul clasei ChildrenCategory primind ca parametru
-     * datele unui copil
-     *
-     * @param children Copilul ale carui date sunt asignate obiectelor corespunzatoare
-     */
-    public void setChildrenCategory(final Children children) {
-
-        this.id = children.getId();
-        this.lastName = children.getLastName();
-        this.firstName = children.getFirstName();
-        this.city = children.getCity();
-        this.age = children.getAge();
-        this.giftsPreferences = children.getGiftsPreferences();
-        this.niceScoreHistory = new ArrayList<>();
-        this.niceScoreHistory.add(children.getNiceScore());
-        this.receivedGifts = new ArrayList<>();
-    }
 
     public final Integer getId() {
         return id;
