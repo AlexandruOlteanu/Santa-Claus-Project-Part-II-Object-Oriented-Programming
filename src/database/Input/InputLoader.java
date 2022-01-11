@@ -117,7 +117,9 @@ public final class InputLoader {
                         ((Long) ((JSONObject) jsonChildren).get("age")).intValue(),
                         (String) ((JSONObject) jsonChildren).get("city"),
                         ((Long) ((JSONObject) jsonChildren).get("niceScore")).doubleValue(),
-                        giftsPreferences
+                        giftsPreferences,
+                        ((Long) ((JSONObject) jsonChildren).get("niceScoreBonus")).doubleValue(),
+                        (String) ((JSONObject) jsonChildren).get("elf")
                 ));
             }
         }
@@ -165,7 +167,8 @@ public final class InputLoader {
                 santaGiftsList.add(new SantaGift(
                         (String) ((JSONObject) jsonSantaGifts).get("productName"),
                         ((Long) ((JSONObject) jsonSantaGifts).get("price")).doubleValue(),
-                        category
+                        category,
+                        ((Long) ((JSONObject) jsonSantaGifts).get("quantity")).intValue()
                 ));
             }
         }
@@ -229,7 +232,8 @@ public final class InputLoader {
                         ((Long) ((JSONObject) jsonAnnualChange).get("newSantaBudget")).intValue(),
                         readSantaGift(jsonNewGifts),
                         readChildren(jsonNewChildren),
-                        readChildrenUpdate(jsonChildrenUpdate)
+                        readChildrenUpdate(jsonChildrenUpdate),
+                        (String) ((JSONObject) jsonAnnualChange).get("strategy")
                 ));
             }
         }

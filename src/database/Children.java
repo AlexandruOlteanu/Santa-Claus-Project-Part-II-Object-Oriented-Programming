@@ -11,6 +11,8 @@ public final class Children {
     private String city;
     private Double niceScore;
     private List<String> giftsPreferences;
+    private Double niceScoreBonus;
+    private String elf;
 
     public Children() {
         this.id = null;
@@ -20,11 +22,14 @@ public final class Children {
         this.city = null;
         this.niceScore = null;
         this.giftsPreferences = null;
+        this.niceScoreBonus = null;
+        this.elf = null;
     }
 
     public Children(final Integer id, final String lastName, final String firstName,
                     final Integer age, final String city, final Double niceScore,
-                    final List<String> giftsPreferences) {
+                    final List<String> giftsPreferences, final Double niceScoreBonus,
+                    final String elf) {
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -32,6 +37,8 @@ public final class Children {
         this.city = city;
         this.niceScore = niceScore;
         this.giftsPreferences = giftsPreferences;
+        this.niceScoreBonus = niceScoreBonus;
+        this.elf = elf;
     }
 
     public Integer getId() {

@@ -7,17 +7,21 @@ public final class SantaGift {
     private String productName;
     private Double price;
     private Category category;
+    private Integer quantity;
 
     public SantaGift() {
         this.productName = null;
         this.price = null;
         this.category = null;
+        this.quantity = null;
     }
 
-    public SantaGift(final String productName, final Double price, final Category category) {
+    public SantaGift(final String productName, final Double price, final Category category,
+                     final Integer quantity) {
         this.productName = productName;
         this.price = price;
         this.category = category;
+        this.quantity = quantity;
     }
 
     public String getProductName() {

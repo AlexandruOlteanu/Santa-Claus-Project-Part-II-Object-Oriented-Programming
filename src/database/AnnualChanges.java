@@ -11,21 +11,24 @@ public final class AnnualChanges {
     private List<Children> newChildren;
 
     private List<ChildrenUpdate> childrenUpdates;
+    private String strategy;
 
     public AnnualChanges() {
         this.newSantaBudget = null;
         this.newGifts = null;
         this.newChildren = null;
         this.childrenUpdates = null;
+        this.strategy = null;
     }
 
     public AnnualChanges(final Integer newSantaBudget, final List<SantaGift> newGifts,
                          final List<Children> newChildren,
-                         final List<ChildrenUpdate> childrenUpdates) {
+                         final List<ChildrenUpdate> childrenUpdates, final String strategy) {
         this.newSantaBudget = newSantaBudget;
         this.newGifts = newGifts;
         this.newChildren = newChildren;
         this.childrenUpdates = childrenUpdates;
+        this.strategy = strategy;
     }
 
     public Integer getNewSantaBudget() {
