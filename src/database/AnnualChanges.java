@@ -47,6 +47,10 @@ public final class AnnualChanges {
         return childrenUpdates;
     }
 
+    public String getStrategy() {
+        return strategy;
+    }
+
     public void setNewSantaBudget(final Integer newSantaBudget) {
         this.newSantaBudget = newSantaBudget;
     }
@@ -61,6 +65,10 @@ public final class AnnualChanges {
 
     public void setChildrenUpdates(final List<ChildrenUpdate> childrenUpdates) {
         this.childrenUpdates = childrenUpdates;
+    }
+
+    public void setStrategy(final String strategy) {
+        this.strategy = strategy;
     }
 
     @Override
