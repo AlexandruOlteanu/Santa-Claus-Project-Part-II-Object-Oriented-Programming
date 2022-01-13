@@ -15,6 +15,9 @@ public final class Constants {
     public static final Integer KID_AGE = 12;
     public static final Integer TEEN_AGE = 18;
     public static final Double BABY_AVERAGE_SCORE = 10.0;
+    public static final Double MAX_NICE_SCORE = 10.0;
+    public static final Double ONE_HUNDRED = 100.0;
+    public static final Double THIRTY = 30.0;
     private Constants() {
         //constructor for checkstyle
     }
