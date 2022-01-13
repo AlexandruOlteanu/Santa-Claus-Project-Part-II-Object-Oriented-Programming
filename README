@@ -1,0 +1,45 @@
+<Copyright Alexandru Olteanu, grupa 322CA, alexandruolteanu2001@gmail.com>
+
+    In aceasta etapa finala a proiectului am ales sa parsez
+input-ul prin aceleasi metode folosite de echipa de POO la 
+tema 1. Am creat un InputLoader ce face acest lucru si un Input 
+in care sa stochez datele parsate. De asemenea am construit clase 
+separate pentru fiecare din datele mentionate la input (Copii, 
+Schimbari Anuale, etc). Odata create aceste clase am creat clasa 
+pentru crearea fisierelor de output corespunzatoare.
+    De aici flow-ul rezolvarii a mers destul de usor, am folosit 
+Singleton Pattern la toate clasele unde acest lucru a fost posibil.
+Am folosit Factory si Strategy Pattern atat la crearea claselor de 
+copii cu varste diferite cat si la metodele de sortare folosite in 
+schimbarile anuale.
+    In acest mod am putut avea o clasa abstracta ce contine tipuri diferite de copii
+pentru care average score-ul se calculeaza in mod diferit, respectiv o interfata 
+ce este implementata de clasele pentru metodele diferite de sortare. De asemenea, 
+am folosit si Builder Pattern pentru implemntarea copiilor, facand astfel mai usor
+de adaugat noi functionalitati ulterior. Am urmarit reprezentarea proceselor si functiilor
+intr-un mod cat mai bine organizat pentru viitore adaugari de functionalitati in 
+cadrul claselor.
+    Din punct de vedere al solutiei propriu zise am trecut prin fiecare 
+test, am parsat datele de input si apoi am inceput desfasurarea rundelor.
+Fiecare runda a fost mai intai updatata (cu exceptia rundei 0) si apoi 
+rezolvata. Update-urile le-am facut prin functii separate, din nou, pentru
+eficienta si mai usoara intelegere a codului. Asa cum am amintit anterior, sortarea copiilor 
+in functie de o anumita strategie a fost implementata cu ajutorul unei interfete comune 
+ce a fost implementata de alte clase necesare sortarii. In urma schimbarilor 
+corespunzatoare aplicate copiilor in urma fiecarei runde am calculat 
+bugetul oferit fiecaruia, am schimbat bugetul copiilor ce au un elf pink sau black 
+si apoi lista de cadouri cumparate in anul respectiv dupa instructiunile cerintei, 
+tinandu-se cont de cantitatea de cadouri ramase din fiecare tip de produs si de bugetul 
+copilului. In final au trebuit aplicate schimbarile elfului yellow in cadrul copiilor care 
+detineau acest tip de elf si care nu au primit niciun cadou din partea Mosului. 
+Pentru fiecare runda am adaugat datele intr-un JSONObject pe care l-am clonat 
+folosind DeepCopy (In caz contrar datele actuale schimbau valori la rundele anterioare 
+daca nu erau scrise direct). Aceste obiecte JSON au fost puse intr-un JSONArray ce la 
+final a fost afisat in intregime. Astfel, fiecare test a fost rezolvat intr-un mod optim
+si folosind eficient Design Patterns.
+    Per total dificultatea acestui proiect nu a fost in partea de implementare
+a cerintei ci mai mult in citire, scriere si atentia sporita pentru DeepCopy si 
+imbunatatirea implementarii folosind Design Patterns.
+
+     
+
